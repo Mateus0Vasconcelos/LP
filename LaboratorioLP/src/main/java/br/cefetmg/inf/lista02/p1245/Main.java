@@ -42,6 +42,7 @@ public class Main {
             }
             System.out.println(contador);
         }
+        scan.close();
     }
 }
     
