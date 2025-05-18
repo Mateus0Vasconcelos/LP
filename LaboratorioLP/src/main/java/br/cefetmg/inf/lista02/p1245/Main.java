@@ -16,7 +16,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);;
         int n;
         
-        for (int j = 0; j < 2; j++) {//while (scan.hasNext()) {
+        while (scan.hasNext()) {
             n = scan.nextInt();
             int[] tamanhosDireita = new int[31];
             int[] tamanhosEsquerda = new int[31];
