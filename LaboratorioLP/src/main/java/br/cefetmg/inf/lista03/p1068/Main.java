@@ -11,21 +11,27 @@ package br.cefetmg.inf.lista03.p1068;
 import java.util.Scanner;
 import java.util.ArrayList;
 class Pilha {
-    private ArrayList<Character> pilha;
+    private char[] pilha;
     Pilha() {
-        pilha = new ArrayList<>();
+        pilha = new char[0];
     }
     void empilhar(char caractere) {
-        pilha.add(caractere);
+        char[] arrayAux = new char[pilha.length + 1];
+        System.arraycopy(pilha, 0, arrayAux, 1, pilha.length);
+        pilha = arrayAux;
     }
     void desempilhar() {
-        pilha.remove(pilha.size() - 1);
+        char[] arrayAux = new char[pilha.length - 1];
+        System.arraycopy(pilha, 0, arrayAux, 0, pilha.length - 1);
+        pilha = arrayAux;
     }
     boolean isEmpty() {
-        return pilha.isEmpty();
+        if (pilha.length == 0)
+            return true;
+        return false;
     }
     char getTopo() {
-        return pilha.get(pilha.size() - 1);
+        return pilha[pilha.length - 1];
     }
 }
 class Expressao {
