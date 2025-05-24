@@ -14,17 +14,20 @@ class Lanche {
     int codigo;
     String especificacao;
     double preco;
+    void set(int codigo, String especificacao, double preco) {
+        this.codigo = codigo;
+        this.especificacao = especificacao;
+        this.preco = preco;
+    } 
 }
 class Cardapio {
     ArrayList<Lanche> lanches;
-    void inicializarLanches() {
+    Cardapio() {
         lanches = new ArrayList<>();
     }
-    void addLanche(int codigo, String especificacao, double preco) {
+    void add(int codigo, String especificacao, double preco) {
         Lanche novoLanche = new Lanche();
-        novoLanche.codigo = codigo;
-        novoLanche.especificacao = especificacao;
-        novoLanche.preco = preco;
+        novoLanche.set(codigo, especificacao, preco);
         lanches.add(novoLanche);
     }
     Lanche getLanche(int codigo) {
@@ -47,12 +50,11 @@ class Venda {
 public class Main {
     public static void main(String args[]) {  
         Cardapio cardapio = new Cardapio();
-        cardapio.inicializarLanches();
-        cardapio.addLanche(1, "Cachorro Quente", 4.0);
-        cardapio.addLanche(2, "X-Salada", 4.5);
-        cardapio.addLanche(3, "X-Bacon", 5.0);
-        cardapio.addLanche(4, "Torrada Simples", 2.0);
-        cardapio.addLanche(5, "Refrigerante", 1.5);
+        cardapio.add(1, "Cachorro Quente", 4.0);
+        cardapio.add(2, "X-Salada", 4.5);
+        cardapio.add(3, "X-Bacon", 5.0);
+        cardapio.add(4, "Torrada Simples", 2.0);
+        cardapio.add(5, "Refrigerante", 1.5);
         Scanner scan = new Scanner(System.in);
         Venda venda = new Venda();
         venda.codigo = scan.nextInt();
