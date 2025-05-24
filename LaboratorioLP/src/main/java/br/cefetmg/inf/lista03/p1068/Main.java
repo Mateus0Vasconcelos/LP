@@ -12,23 +12,20 @@ import java.util.Scanner;
 import java.util.ArrayList;
 class Pilha {
     private ArrayList<Character> pilha;
-    private char topo;
     Pilha() {
         pilha = new ArrayList<>();
     }
     void empilhar(char caractere) {
         pilha.add(caractere);
-        topo = caractere;
     }
     void desempilhar() {
-        topo = pilha.get(pilha.size() - 1);
         pilha.remove(pilha.size() - 1);
     }
     boolean isEmpty() {
         return pilha.isEmpty();
     }
     char getTopo() {
-        return topo;
+        return pilha.get(pilha.size() - 1);
     }
 }
 class Expressao {
