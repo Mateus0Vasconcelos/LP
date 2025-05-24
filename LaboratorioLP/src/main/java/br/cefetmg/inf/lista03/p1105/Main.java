@@ -11,7 +11,7 @@ package br.cefetmg.inf.lista03.p1105;
 import java.util.Scanner;
 import java.util.ArrayList;
 class Banco {
-    int reserva;
+    private int reserva;
     void setReserva(int valor) {
         reserva += valor;
     }
