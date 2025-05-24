@@ -9,7 +9,6 @@ package br.cefetmg.inf.lista03.p1068;
  * @author mateu
  */
 import java.util.Scanner;
-import java.util.ArrayList;
 class Pilha {
     private char[] pilha;
     Pilha() {
