@@ -43,7 +43,7 @@ class Venda {
     int quantidade;
     double operarVenda(Cardapio cardapio) {
         double valorCompra = quantidade * cardapio.getLanche(codigo).preco;
-        System.out.printf("Total: R$ %.2f", valorCompra);
+        System.out.printf("Total: R$ %.2f\n", valorCompra);
         return valorCompra;
     }
 }
