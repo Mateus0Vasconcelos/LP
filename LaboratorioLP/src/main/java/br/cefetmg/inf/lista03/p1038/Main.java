@@ -30,7 +30,7 @@ class Cardapio {
         novoLanche.set(codigo, especificacao, preco);
         lanches.add(novoLanche);
     }
-    Lanche getLanche(int codigo) {
+    Lanche get(int codigo) {
         for (int i = 0; i < lanches.size(); i++) {
             if (lanches.get(i).codigo == codigo)
                 return lanches.get(i);
@@ -39,12 +39,17 @@ class Cardapio {
     }
 }
 class Venda {
-    int codigo;
-    int quantidade;
-    double operarVenda(Cardapio cardapio) {
-        double valorCompra = quantidade * cardapio.getLanche(codigo).preco;
+    private int codigo;
+    private int quantidade;
+    void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    void operarVenda(Cardapio cardapio) {
+        double valorCompra = quantidade * cardapio.get(codigo).preco;
         System.out.printf("Total: R$ %.2f\n", valorCompra);
-        return valorCompra;
     }
 }
 public class Main {
@@ -55,11 +60,13 @@ public class Main {
         cardapio.add(3, "X-Bacon", 5.0);
         cardapio.add(4, "Torrada Simples", 2.0);
         cardapio.add(5, "Refrigerante", 1.5);
-        Scanner scan = new Scanner(System.in);
         Venda venda = new Venda();
-        venda.codigo = scan.nextInt();
-        venda.quantidade = scan.nextInt();
+        Scanner scan = new Scanner(System.in);
+        int codigo = scan.nextInt();
+        int quantidade = scan.nextInt();
         scan.close();
-        venda.operarVenda(cardapio); 
+        venda.setCodigo(codigo);
+        venda.setQuantidade(quantidade);
+        venda.operarVenda(cardapio);
     }
 }
